@@ -106,7 +106,10 @@ AvlNode* avlAdd(AvlNode* r, int data) {
 		printf("\n중복 입력값 \n");
 		return;
 	}
-	r->Height = Max(height(r->right), height(r->left)) + 1;
+	if (height(r->right) > height(r->left))
+		r->Height = height(r->right) + 1;
+	else
+		r->Height = height(r->left) + 1;
 	return r;
 }
 
